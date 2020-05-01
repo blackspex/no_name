@@ -1,0 +1,287 @@
+#include <stdio.h>
+
+ struct node{
+
+int data;
+struct node *next;
+struct node *prev;
+};
+struct node *head;
+int l=0;
+struct node *tail;
+ void cll(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=NULL;
+nn->prev=NULL;
+head=nn;
+tail=nn;
+}
+void ill(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=NULL;
+nn->prev=tail;
+tail->next=nn;
+tail=nn;
+}
+void pll(){
+    l=0;
+struct   node *a=head;
+while(a!=NULL){
+    printf("%d ",a->data);
+    a=a->next;
+    ++l;
+}
+printf("\n");
+}
+void pll2(){
+struct   node *a=tail;
+while(a!=NULL){
+    printf("%d ",a->data);
+    a=a->prev;
+}
+printf("\n");
+}
+void q1(){
+    printf("enter position");
+    int b;
+    int i;
+    struct node *a=head;
+    scanf("%d",&b);
+    for(i=2;i<b;i++)
+        a=a->next;
+
+    printf("enter data");
+int d;
+scanf("%d",&d);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=d;
+nn->prev=a;
+nn->next=a->next;
+a->next->prev=nn;
+a->next=nn;
+
+}
+void q2(){
+tail=tail->prev;
+tail->next=NULL;
+}
+void q3(){
+struct node *a=head;
+struct node *b =tail;
+int q=0;
+while(q<=l/2){
+
+    int c=a->data;
+    a->data=b->data;
+    b->data=c;
+    a=a->next;
+    b=b->prev;
+    ++q;
+}
+
+}
+
+
+int main()
+{
+
+    cll();
+    ill();
+    ill();
+    ill();
+    ill();
+    pll();
+    pll2();
+    q1();
+    pll();
+    q2();
+    pll();
+    q3();
+    pll();
+
+return 1;
+}
+-------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+ struct node{
+
+int data;
+struct node *next;
+};
+struct node *head;
+struct node *tail;
+ void cll(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=nn;;
+head=nn;
+tail=nn;
+}
+void ill(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=head;
+tail->next=nn;
+tail=nn;
+}
+void pll(){
+struct   node *a=head;
+printf("%d ",a->data);
+a=a->next;
+while(a!=head){
+    printf("%d ",a->data);
+    a=a->next;
+}
+printf("\n");
+}
+void q4(){
+struct node *a=head;
+printf("enter position");
+int b;
+int i;
+scanf("%d",&b);
+for(i=2;i<b;i++)
+    a=a->next;
+    a->next=a->next->next;
+
+}
+void q5(){
+    struct node *head2;
+        struct node *tail2;
+
+    printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=nn;;
+head2=nn;
+tail2=nn;
+int i;
+for(i=1;i<=3;i++){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=head2;
+tail2->next=nn;
+tail2=nn;
+}
+tail->next=head2;
+tail2->next=head;
+tail=tail2;
+
+}
+
+int main()
+{
+
+    cll();
+    ill();
+    ill();
+    ill();
+    ill();
+    pll();
+    q4();
+    pll();
+    q5();
+    pll();
+
+return 1;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+ struct node{
+
+int data;
+struct node *next;
+struct node *down;
+};
+struct node *u;
+int h=0;
+struct node *head;
+struct node *tail;
+ void cll(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+if(h>=1)
+head->down=nn;
+nn->data=a;
+nn->next=NULL;
+head=nn;
+tail=nn;
+if(h==0)
+    u=head;
+++h;
+}
+void ill(){
+printf("enter data");
+int a;
+scanf("%d",&a);
+struct node *nn = (struct node*) malloc(sizeof(struct node));
+nn->data=a;
+nn->next=NULL;
+tail->next=nn;
+tail=nn;
+}
+void pll(){
+struct   node *a=u;
+struct   node *b=u;
+
+while(b!=NULL){
+        a=b;
+while(a!=NULL){
+    printf("%d ",a->data);
+    a=a->next;
+}
+b=b->down;
+printf("\n");
+}
+}
+
+
+int main()
+{
+printf("enter no of rows");
+int n;
+int m;
+scanf("%d",&n);
+int i;
+for(i=1;i<=n;i++){
+        printf("enter no of nodes");
+        scanf("%d",&m);
+
+    cll();
+    int j;
+    for(j=2;j<=m;j++){
+    ill();
+}
+
+}
+pll();
+
+return 1;
+}
+
+
+
